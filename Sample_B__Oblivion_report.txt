@@ -1,0 +1,301 @@
+### Macro Oblivion Report ###
+
+
+Date and Time: 2024-01-12 08:08
+Hash 256: ea1e38f0e64061c6b47899741c81e277cbb81b070c30b451a5ebd904158b66fa
+File Type: Word
+
+### Executable Files ### 
+
+http://bagsrad.com:8099/yorry/server1.exe
+c:\users\user\appdata\roaming\microsoft\windows\recent\hishjqv.exe
+\hishjqv.exe
+
+### Other File Traces ### 
+
+Nothing Found
+
+### Domain Traces ### 
+
+bagsrad.com:88
+bagsrad.cc
+bagsrad.coo
+bagsrad.comm
+bagsrad.com:8099
+bagsrad.com:800
+bagsrad.com:80999
+
+### CreateObject Actions ### 
+
+WScript.Shell
+Shell.Application
+microsoft.xmlhttp
+
+### Shell Actions ### 
+
+Nothing Found
+
+### Cmd Actions ### 
+
+Nothing Found
+
+### Deobfuscated Powershell ### 
+
+Nothing Found
+
+### Environment Variables ### 
+
+Nothing Found
+
+### External Calls ### 
+
+Nothing Found
+
+### Exceptions ### 
+
+The system cannot locate the resource specified.
+
+### System File Writes ### 
+
+Nothing Found
+
+### Auto Exec Methods ### 
+
+Document_Open -> Runs when the Word or Publisher document is opened
+
+### Suspicious calls ### 
+
+Open -> May open a file
+Write -> May write to a file 
+adodb.stream -> May create a text file
+SaveToFile -> May create a text file
+Shell -> May run an executable file or a system command
+WScript.Shell -> May run an executable file or a system command
+Call -> May call a DLL using Excel 4 Macros 
+CreateObject -> May create an OLE object
+Shell.Application -> May run an application 
+microsoft.xmlhttp -> May download files from the Internet
+Chr -> May attempt to obfuscate specific strings 
+Hex Strings -> Hex-encoded strings were detected, may be used to obfuscate strings 
+
+
+### Interactions ### 
+
+[x] Found window Messages from Sandboxie with handle: 5834522, elements: ListBox - ; Button - &Help; Button - H&ide; Button - &Close; Button - Copy Contents to Clipboard and Close Window, screenshot: OblivionResources\logs\InteractionPlugin\ea1e38f0e64061c6b47899741c81e277cbb81b070c30b451a5ebd904158b66fa.doc+Messages from Sandboxie+5834522.png
+
+[x] Found window Microsoft Word with handle: 5835058, elements: Button - OK; Static - Advertencia: Macro cargada....(Recargar documento), screenshot: OblivionResources\logs\InteractionPlugin\ea1e38f0e64061c6b47899741c81e277cbb81b070c30b451a5ebd904158b66fa.doc+Microsoft Word+5835058.png
+
+[x] Clicked on Button 
+
+Called legacy API MessageBox 1 times.
+Called legacy API InputBox 0 times.
+
+### Variable Values ###
+
+# ¯©¨©§·»¿³ºº«©¨¬³»·£®¬°®«£¥¯§¸¸¦¢¶¨´©¶¯°¯¨«¡ª³§¡´°¸®¤°²·ª®µ¶¦£¹¾¸¥§§¨¥®ª¦µª«¢¨¦«´ª¹·¤ª²¤© 
+200
+# WshShell 
+CreateObject('WScript.Shell')
+# UtfvSpecialPathKHVjh 
+C:\Users\User\AppData\Roaming\Microsoft\Windows\Recent
+# µ¬¥´¨³¦¤¼µ´¡»¹¨µ«¨ª¤¢·«ª¥²¢¿¦µ®£¦¬·¼¼»¾¶²¶§°°º¼½¹§²£¬¸¹©¸º¬¦¶¾·¢¾£¤½²¼´·©·½ºª¬²¾¢§©¢¸¯¢©£»¸¦¤¿¤¡´¢ 
+1
+# §§¨¥®ª¦µª«¢¨¦«´ª¹·¤ª²¤©¡µ¥¥®¬´¸¿²½²¿¥³¥¦ª°¡½³¹½»®££º»¯¡«¶¿´¸¬§®¶³³²µ¤¨¤¾¡©°³´¢½°¬¹·¡¼¶°¹ 
+CreateObject('microsoft.xmlhttp')
+# ¶¾·¢¾£¤½²¼´·©·½ºª¬²¾¢§©¢¸¯¢©£»¸¦¤¿¤¡´¢¯©¨©§·»¿³ºº«©¨¬³»·£®¬°®«£¥¯§¸¸¦¢¶¨´©¶¯°¯¨«¡ª³§¡´°¸®¤°²·ª 
+CreateObject('Shell.Application')
+# ¹¾¸¥§§¨¥®ª¦µª«¢¨¦«´ª¹·¤ª²¤©¡µ¥¥®¬´¸¿²½²¿¥³¥¦ª°¡½³¹½»®££º»¯¡«¶¿´¸¬§®¶³³²µ¤¨¤¾¡©°³´¢½°¬¹·¡¼¶°¹ 
+\Hä§HJQV.ÂÛÂ (x2)
+**End Invoked Method Parameters** 
+# µ£«µ¬¥´¨³¦¤¼µ´¡»¹¨µ«¨ª¤¢·«ª¥²¢¿¦µ®£¦¬·¼¼»¾¶²¶§°°º¼½¹§²£¬¸¹©¸º¬¦¶¾·¢¾£¤½²¼´·©·½ºª¬²¾¢§© 
+ ?!@#$%^&*()_+|0123456789abcdefghijklmnopqrstuvwxyz.,-~ABCDEFGHIJKLMNOPQRSTUVWXYZ¿¡²³ÀÁÂÃÄÅÒÓÔÕÖÙÛÜàáâãäåØ¶§Ú¥ (x3)
+# ¢¸¯¢©£»¸¦¤¿¤¡´¢¯©¨©§·»¿³ºº«©¨¬³»·£®¬°®«£¥¯§¸¸¦¢¶¨´©¶¯°¯¨«¡ª³§¡´°¸®¤°²·ª®µ¶¦£¹¾¸¥§§¨¥®ª¦ 
+ ¿¡@#$%^&*()_+|01²³456789ÀbÁdÂÃghÄjklmÅÒÓqÔÕÖÙvwÛÜz.,-~AàáâãFGHäJKåMNØ¶QR§TÚVWX¥Z?!23acefinoprstuxyBCDEILOPSUY (x3)
+# µª«¢¨¦«´ª¹·¤ª²¤©¡µ¥¥®¬´¸¿²½²¿¥³¥¦ª°¡½³¹½»®££º»¯¡«¶¿´¸¬§®¶³³²µ¤¨¤¾¡©°³´¢½°¬¹·¡¼¶°¹¿µµ£«µ¬¥´¨ 
+0
+63
+104
+108
+63
+65
+72
+77
+52
+88
+98
+88
+0
+63
+104
+108
+63
+65
+72
+77
+52
+88
+98
+88
+33
+96 (x2)
+93
+0 (x3)
+27
+86
+32
+95
+94
+86
+29
+52
+87
+92
+38
+0
+24
+16
+25 (x2)
+0
+99
+92
+94 (x2)
+99
+0
+95
+88
+94
+47
+88
+94
+17
+52
+88
+98
+88
+# ©¨©§·»¿³ºº«©¨¬³»·£®¬°®«£¥¯§¸¸¦¢¶¨´©¶¯°¯¨«¡ª³§¡´°¸®¤°²·ª®µ¶¦£¹¾¸¥§§¨¥®ª¦µª«¢¨¦«´ª¹·¤ª²¤©¡µ¥¥®¬ 
+\\
+\HH
+\HII
+\HISS
+\HISHH
+\HISHJJ
+\HISHJQQ
+\HISHJQVV
+\HISHJQV..
+\HISHJQV.ee
+\HISHJQV.exx
+\HISHJQV.exee
+\\
+\HH
+\HII
+\HISS
+\HISHH
+\HISHJJ
+\HISHJQQ
+\HISHJQVV
+\HISHJQV..
+\HISHJQV.ee
+\HISHJQV.exx
+\HISHJQV.exee
+hh
+htt
+httt
+httpp
+http::
+http://
+http:///
+http://bb
+http://baa
+http://bagg
+http://bagss
+http://bagsrr
+http://bagsraa
+http://bagsradd
+http://bagsrad..
+http://bagsrad.cc
+http://bagsrad.coo
+http://bagsrad.comm
+http://bagsrad.com::
+http://bagsrad.com:88
+http://bagsrad.com:800
+http://bagsrad.com:8099
+http://bagsrad.com:80999
+http://bagsrad.com:8099//
+http://bagsrad.com:8099/yy
+http://bagsrad.com:8099/yoo
+http://bagsrad.com:8099/yorr
+http://bagsrad.com:8099/yorrr
+http://bagsrad.com:8099/yorryy
+http://bagsrad.com:8099/yorry//
+http://bagsrad.com:8099/yorry/ss
+http://bagsrad.com:8099/yorry/see
+http://bagsrad.com:8099/yorry/serr
+http://bagsrad.com:8099/yorry/servv
+http://bagsrad.com:8099/yorry/servee
+http://bagsrad.com:8099/yorry/serverr
+http://bagsrad.com:8099/yorry/server11
+http://bagsrad.com:8099/yorry/server1..
+http://bagsrad.com:8099/yorry/server1.ee
+http://bagsrad.com:8099/yorry/server1.exx
+http://bagsrad.com:8099/yorry/server1.exee
+# ³¦¤¼µ´¡»¹¨µ«¨ª¤¢·«ª¥²¢¿¦µ®£¦¬·¼¼»¾¶²¶§°°º¼½¹§²£¬¸¹©¸º¬¦¶¾·¢¾£¤½²¼´·©·½ºª¬²¾¢§©¢¸¯¢©£»¸¦¤¿¤¡´¢¯ 
+H
+I
+S
+H
+J
+Q
+V
+.
+e
+x
+e
+H
+I
+S
+H
+J
+Q
+V
+.
+e
+x
+e
+h
+t (x2)
+p
+b
+a
+g
+s
+r
+a
+d
+.
+c
+o
+m
+8
+0
+9 (x2)
+y
+o
+r (x2)
+y
+s
+e
+r
+v
+e
+r
+1
+.
+e
+x
+e
+# §¨¥®ª¦µª«¢¨¦«´ª¹·¤ª²¤©¡µ¥¥®¬´¸¿²½²¿¥³¥¦ª°¡½³¹½»®££º»¯¡«¶¿´¸¬§®¶³³²µ¤¨¤¾¡©°³´¢½°¬¹·¡¼¶°¹¿µ 
+**End Invoked Method Parameters** 
+
+### Dynamic Call Graph ###
+
+Document_Open-->·½ºª¬²¾¢§©¢¸¯¢©£»¸¦¤¿¤¡´¢¯©¨©§·»¿³ºº«©¨¬³»·£®¬°®«£¥¯§¸¸¦¢¶¨´©¶¯°¯¨«¡ª³§¡´°¸®¤°²·ª®µ¶¦£-->

